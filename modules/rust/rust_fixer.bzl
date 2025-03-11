@@ -1,6 +1,6 @@
 """Internal rules to fix up rust protoc output"""
 
-load("//:defs.bzl", "ProtoCompileInfo")
+load("@rules_proto_grpc//:defs.bzl", "ProtoCompileInfo")
 
 def _rust_proto_crate_root(ctx):
     name = ctx.attr.crate_dir
@@ -51,7 +51,7 @@ rust_proto_crate_fixer = rule(
         "_script": attr.label(
             executable = True,
             cfg = "exec",
-            default = Label("//rust:rust_fixer"),
+            default = Label("//:rust_fixer"),
         ),
     },
 )

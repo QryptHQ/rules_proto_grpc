@@ -1,9 +1,9 @@
 """Generated definition of rust_prost_proto_library."""
 
-load("//rust:common.bzl", "create_name_to_label", "prepare_prost_proto_deps", "prost_compile_attrs")
-load("//rust:rust_prost_proto_compile.bzl", "rust_prost_proto_compile")
-load("//:defs.bzl", "bazel_build_rule_common_attrs", "proto_compile_attrs")
-load("//rust:rust_fixer.bzl", "rust_proto_crate_fixer", "rust_proto_crate_root")
+load("//:common.bzl", "create_name_to_label", "prepare_prost_proto_deps", "prost_compile_attrs")
+load("//:rust_prost_proto_compile.bzl", "rust_prost_proto_compile")
+load("@rules_proto_grpc//:defs.bzl", "bazel_build_rule_common_attrs", "proto_compile_attrs")
+load("//:rust_fixer.bzl", "rust_proto_crate_fixer", "rust_proto_crate_root")
 load("@rules_rust//rust:defs.bzl", "rust_library")
 
 def rust_prost_proto_library(name, **kwargs):  # buildifier: disable=function-docstring

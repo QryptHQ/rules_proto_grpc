@@ -4,7 +4,7 @@ rust_tonic_grpc_library(
     name = "greeter_grpc",
     declared_proto_packages = ["example.proto"],
     options = {
-        "//rust:rust_prost_plugin": [
+        "//:rust_prost_plugin": [
             "type_attribute=.example.proto.Person=#[derive(Eq\\,Hash)]",
             "type_attribute=.example.proto.Place=#[derive(Eq\\,Hash)]",
         ],

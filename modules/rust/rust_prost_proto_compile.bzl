@@ -1,10 +1,6 @@
 """Generated definition of rust_prost_proto_compile."""
 
-load(
-    "//:defs.bzl",
-    "ProtoPluginInfo",
-    "proto_compile_attrs",
-)
+load("@rules_proto_grpc//:defs.bzl", "ProtoPluginInfo", "proto_compile_attrs")
 load(":common.bzl", "ProstProtoInfo", "rust_prost_proto_compile_impl")
 
 # Create compile rule
@@ -28,12 +24,12 @@ rust_prost_proto_compile = rule(
         _plugins = attr.label_list(
             providers = [ProtoPluginInfo],
             default = [
-                Label("//rust:rust_prost_plugin"),
-                Label("//rust:rust_crate_plugin"),
-                Label("//rust:rust_serde_plugin"),
+                Label("//:rust_prost_plugin"),
+                Label("//:rust_crate_plugin"),
+                Label("//:rust_serde_plugin"),
             ],
             doc = "List of protoc plugins to apply",
         ),
     ),
-    toolchains = [str(Label("//protobuf:toolchain_type"))],
+    toolchains = [str(Label("@rules_proto//proto:toolchain_type"))],
 )

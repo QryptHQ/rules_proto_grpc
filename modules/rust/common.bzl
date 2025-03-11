@@ -1,6 +1,6 @@
 """Rules for compiling .proto files using the prost via the prost protoc plugins."""
 
-load("//:defs.bzl", "proto_compile")
+load("@rules_proto_grpc//:defs.bzl", "proto_compile")
 
 ProstProtoInfo = provider(
     doc = "Additional information needed for prost compilation rules.",
@@ -17,7 +17,7 @@ prost_compile_attrs = [
 
 def create_name_to_label(name):
     """Convert a simple crate name into its full label."""
-    return Label("//rust/3rdparty/crates:" + name)
+    return Label("@crates//:" + name)
 
 def prepare_prost_proto_deps(prost_proto_deps):
     """Convert a list of prost proto deps to correct format.
@@ -74,9 +74,9 @@ def rust_prost_proto_compile_impl(ctx):
     options = {}
     for option in ctx.attr.options:
         options[option] = ctx.attr.options[option]
-    if "//rust:rust_prost_plugin" not in options:
-        options["//rust:rust_prost_plugin"] = []
-    options["//rust:rust_prost_plugin"] = options["//rust:rust_prost_plugin"] + externs
+    if "//:rust_prost_plugin" not in options:
+        options["//:rust_prost_plugin"] = []
+    options["//:rust_prost_plugin"] = options["//:rust_prost_plugin"] + externs
 
     compile_result = proto_compile(
         ctx,
