@@ -24,10 +24,10 @@ rust_tonic_grpc_compile = rule(
         _plugins = attr.label_list(
             providers = [ProtoPluginInfo],
             default = [
-                Label("//:rust_prost_plugin"),
-                Label("//:rust_crate_plugin"),
-                Label("//:rust_serde_plugin"),
-                Label("//:rust_tonic_plugin"),
+                Label("@rules_proto_grpc_rust//:rust_prost_plugin"),
+                Label("@rules_proto_grpc_rust//:rust_crate_plugin"),
+                Label("@rules_proto_grpc_rust//:rust_serde_plugin"),
+                Label("@rules_proto_grpc_rust//:rust_tonic_plugin"),
             ],
             doc = "List of protoc plugins to apply",
         ),

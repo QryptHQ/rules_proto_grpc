@@ -74,9 +74,9 @@ def rust_prost_proto_compile_impl(ctx):
     options = {}
     for option in ctx.attr.options:
         options[option] = ctx.attr.options[option]
-    if "//:rust_prost_plugin" not in options:
-        options["//:rust_prost_plugin"] = []
-    options["//:rust_prost_plugin"] = options["//:rust_prost_plugin"] + externs
+    if Label("@rules_proto_grpc_rust//:rust_prost_plugin") not in options:
+        options[Label("@rules_proto_grpc_rust//:rust_prost_plugin")] = []
+    options[Label("@rules_proto_grpc_rust//:rust_prost_plugin")] = options[Label("@rules_proto_grpc_rust//:rust_prost_plugin")] + externs
 
     compile_result = proto_compile(
         ctx,

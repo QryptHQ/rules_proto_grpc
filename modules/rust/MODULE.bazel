@@ -8,7 +8,7 @@ bazel_dep(name = "grpc", version = "1.65.0")
 bazel_dep(name = "protobuf", version = "29.0")
 bazel_dep(name = "rules_proto", version = "7.0.2")
 bazel_dep(name = "rules_rust", version = "0.58.0")
-bazel_dep(name = "rules_proto_grpc", version = "5.0.1")
+bazel_dep(name = "rules_proto_grpc", version = "0.0.0.rpg.version.placeholder")
 
 crate = use_extension("@rules_rust//crate_universe:extensions.bzl", "crate")
 crate.spec(package = "async-stream", version = "0.3.6")
